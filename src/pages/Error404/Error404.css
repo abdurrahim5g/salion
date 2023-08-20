@@ -1,0 +1,13 @@
+.error-page {
+  height: 100vh;
+  background: #f7f7f7;
+  display: grid;
+  place-content: center;
+}
+
+.error-page h2 {
+  background: url(./star-bg.png) no-repeat center / cover;
+  display: block;
+  background-clip: text;
+  color: transparent;
+}
