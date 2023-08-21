@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500&display=swap");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* colors */
+  --pc: #dc8274;
+
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,6 +15,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,4 +32,8 @@
 
 body {
   line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px !important;
 }

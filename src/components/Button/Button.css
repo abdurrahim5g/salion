@@ -1,0 +1,41 @@
+.salion-btn {
+  padding: 15px 30px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.salion-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: var(--pc);
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.salion-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid;
+  left: 0;
+  top: 0;
+  transform: scale(1.3);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.salion-btn:hover:before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.salion-btn:hover:after {
+  transform: scale(0.5);
+  opacity: 0;
+}
