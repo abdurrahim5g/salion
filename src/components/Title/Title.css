@@ -7,3 +7,9 @@
   bottom: 0;
   border-radius: 20px;
 }
+
+@media all and (max-width: 767px) {
+  .section-title.mobile-center::before {
+    left: calc(50% - 25px);
+  }
+}
