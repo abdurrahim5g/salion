@@ -1,5 +1,6 @@
 import About from "./About/About";
 import Hero from "./Hero/Hero";
+import Partners from "./Partners/Partners";
 import Promotion from "./Promotion/Promotion";
 import Team from "./Team/Team";
 
@@ -10,6 +11,7 @@ const Home = () => {
       <About />
       <Promotion />
       <Team />
+      <Partners />
     </>
   );
 };
