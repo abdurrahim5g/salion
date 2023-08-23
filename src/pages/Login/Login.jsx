@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import googleIcon from "./google-icon.png";
 import logo from "./logo.png";
+import useAuthContex from "../../hooks/useAuthContex";
 
 const Login = () => {
+  const { user } = useAuthContex();
+  console.log(user);
   return (
     <section className="login-page py-12">
       <div className="container">
