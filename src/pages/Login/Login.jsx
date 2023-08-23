@@ -1,12 +1,52 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import googleIcon from "./google-icon.png";
 import logo from "./logo.png";
 import useAuthContex from "../../hooks/useAuthContex";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { user } = useAuthContex();
-  console.log(user);
+  /**
+   * Features comes from contex
+   */
+  const { signIn } = useAuthContex();
+
+  /**
+   * Navigate user
+   */
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+
+  /**
+   * Destrucer from useForm() hooks -> react-hook-form
+   */
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  // handleLogin
+  const handleLogin = (data) => {
+    const { email, pass } = data;
+    if (email && pass) {
+      signIn(email, pass)
+        .then((result) => {
+          const user = result.user;
+          if (user.uid) {
+            toast.success("Login successfuly");
+            navigate(from);
+          }
+        })
+        .catch((err) => {
+          toast.error(err.message);
+          toast.error(err.code);
+        });
+    }
+  };
+
   return (
     <section className="login-page py-12">
       <div className="container">
@@ -22,24 +62,32 @@ const Login = () => {
               <h3 className="text-2xl md:text-3xl font-semibold mb-6">
                 Login now
               </h3>
-              <form>
-                <div className="single-input">
+              <form onSubmit={handleSubmit(handleLogin)}>
+                <div className="single-input mb-6">
                   <input
-                    className="border-0 border-b-[1px] py-2 w-full border-gray-400 mb-6 outline-none"
+                    className="border-0 border-b-[1px] py-2 w-full border-gray-400  outline-none"
                     type="email"
                     name="email"
                     id="email"
                     placeholder="Your Email"
+                    {...register("email", { required: "Email is required!" })}
                   />
+                  <p className="text-red-500 text-sm ">
+                    {errors?.email?.message}
+                  </p>
                 </div>
-                <div className="single-input">
+                <div className="single-input mb-6">
                   <input
-                    className="border-0 border-b-[1px] py-2 w-full border-gray-400 mb-6 outline-none"
+                    className="border-0 border-b-[1px] py-2 w-full border-gray-400  outline-none"
                     type="password"
                     name="pass"
                     id="pass"
                     placeholder="Password"
+                    {...register("pass", { required: "Password is required!" })}
                   />
+                  <p className="text-red-500 text-sm ">
+                    {errors?.pass?.message}
+                  </p>
                 </div>
 
                 <div className="single-input">

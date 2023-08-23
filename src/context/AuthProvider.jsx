@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
@@ -30,6 +31,9 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, pass);
   };
 
+  // signIn
+  const signIn = (email, pass) => signInWithEmailAndPassword(auth, email, pass);
+
   // update user displayName
   const updateDisplayName = (name) => {
     return updateProfile(auth.currentUser, {
@@ -41,6 +45,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     signUp,
+    signIn,
     updateDisplayName,
   };
 
