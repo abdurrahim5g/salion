@@ -5,12 +5,13 @@ import logo from "./logo.png";
 import useAuthContex from "../../hooks/useAuthContex";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   /**
    * Features comes from contex
    */
-  const { signIn } = useAuthContex();
+  const { signIn, providerSignIn } = useAuthContex();
 
   /**
    * Navigate user
@@ -45,6 +46,26 @@ const Login = () => {
           toast.error(err.code);
         });
     }
+  };
+
+  /**
+   *
+   * Handle Provicer sign is like [google]
+   */
+  const googleProvider = new GoogleAuthProvider();
+  const handleProviderSignIn = (provider) => {
+    providerSignIn(provider)
+      .then((result) => {
+        const user = result.user;
+        if (user.uid) {
+          toast.success("Login successfuly");
+          navigate(from);
+        }
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        toast.error(err.code);
+      });
   };
 
   return (
@@ -109,7 +130,10 @@ const Login = () => {
               <div className="divider my-8">OR</div>
 
               <div className="google-login">
-                <button className="flex w-full items-center border rounded-full p-2">
+                <button
+                  className="flex w-full items-center border rounded-full p-2"
+                  onClick={() => handleProviderSignIn(googleProvider)}
+                >
                   <img src={googleIcon} alt="Google Icon" />
                   <span className="flex-grow  text-center">
                     Continue with Google

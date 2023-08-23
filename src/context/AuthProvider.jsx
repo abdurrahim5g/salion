@@ -5,6 +5,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
@@ -41,12 +42,19 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  /**
+   *
+   * Provider sign in Like [google]
+   */
+  const providerSignIn = (provider) => signInWithPopup(auth, provider);
+
   // authInfo is the contex value
   const authInfo = {
     user,
     signUp,
     signIn,
     updateDisplayName,
+    providerSignIn,
   };
 
   return <AuthContex.Provider value={authInfo}>{children}</AuthContex.Provider>;
