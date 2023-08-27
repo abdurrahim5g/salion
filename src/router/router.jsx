@@ -4,6 +4,7 @@ import Error404 from "../pages/Error404/Error404";
 import Frontend from "../layouts/Frontend/Frontend";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
+import Dashboard from "../layouts/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
   {
     path: "*",
     element: <Error404 />,
