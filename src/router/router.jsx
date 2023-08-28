@@ -5,6 +5,7 @@ import Frontend from "../layouts/Frontend/Frontend";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import Dashboard from "../layouts/Dashboard/Dashboard";
+import Orders from "../dashboard/admin/Orders/Orders";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+    children: [{ path: "orders", element: <Orders /> }],
   },
   {
     path: "*",

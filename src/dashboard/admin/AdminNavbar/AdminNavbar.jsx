@@ -7,7 +7,7 @@ const AdminNavbar = () => {
       <AdminLink to="/dashboard/" icon="" className="hi">
         Dashboard
       </AdminLink>
-      <AdminLink to="/orders" icon="FaThList">
+      <AdminLink to="orders" icon="FaThList">
         Orders
       </AdminLink>
     </div>
