@@ -4,12 +4,9 @@ import style from "./AdminNavbar.module.css";
 const AdminNavbar = () => {
   return (
     <div className={style.adminNavbar}>
-      <AdminLink to="/dashboard/" icon="" className="hi">
-        Dashboard
-      </AdminLink>
-      <AdminLink to="orders" icon="FaThList">
-        Orders
-      </AdminLink>
+      <AdminLink to="/dashboard/" icon="" className="hi" text="Dashboard" />
+      <AdminLink to="orders" icon="FaThList" text="Order List" />
+      <AdminLink to="add-service" icon="FaPlus" text="Add Service" />
     </div>
   );
 };
