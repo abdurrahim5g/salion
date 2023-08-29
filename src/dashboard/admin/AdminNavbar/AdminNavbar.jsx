@@ -11,6 +11,7 @@ const AdminNavbar = () => {
       <AdminLink to="manage-services" icon="FaBuffer" text="Manage Services" />
       {/* customer view */}
       <AdminLink to="booking-list" icon="FaListUl" text="Booking List" />
+      <AdminLink to="reviews" icon="FaComment" text="Reviews" />
     </div>
   );
 };

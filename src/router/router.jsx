@@ -10,6 +10,7 @@ import AddService from "../dashboard/admin/AddService/AddService";
 import MakeAdmin from "../dashboard/admin/MakeAdmin/MakeAdmin";
 import ManageServices from "../dashboard/admin/ManageServices/ManageServices";
 import BookingList from "../dashboard/customer/BookingList/BookingList";
+import Reviews from "../dashboard/customer/Reviews/Reviews";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
       { path: "make-admin", element: <MakeAdmin /> },
       { path: "manage-services", element: <ManageServices /> },
       { path: "booking-list", element: <BookingList /> },
+      { path: "reviews", element: <Reviews /> },
     ],
   },
   {
