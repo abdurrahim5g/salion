@@ -69,7 +69,7 @@ const Orders = () => {
   };
 
   return (
-    <section className={`${style.orders} bg-white rounded-lg shadow-md p-6`}>
+    <section className={`${style.orders} `}>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}

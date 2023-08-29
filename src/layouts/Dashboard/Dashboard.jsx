@@ -2,8 +2,11 @@ import { Link, Outlet } from "react-router-dom";
 import "./Dashboard.css";
 import logo from "./logo.png";
 import AdminNavbar from "../../dashboard/admin/AdminNavbar/AdminNavbar";
+import useAuthContex from "../../hooks/useAuthContex";
 
 const Dashboard = () => {
+  const { user } = useAuthContex();
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -17,11 +20,13 @@ const Dashboard = () => {
 
         <div className="page-header flex items-center justify-between p-5 font-semibold text-2xl w-full self-auto shadow-md bg-white">
           <div className="page-name">Oreder List</div>
-          <div className="user-name">Abdur Rahim</div>
+          <div className="user-name">{user?.displayName || "UserName"}</div>
         </div>
 
-        <main className="main-class p-6">
-          <Outlet></Outlet>
+        <main className="main-class p-6 ">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <Outlet></Outlet>
+          </div>
         </main>
       </div>
       <div className="drawer-side">

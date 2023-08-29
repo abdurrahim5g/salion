@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import Orders from "../dashboard/admin/Orders/Orders";
+import AddService from "../dashboard/admin/AddService/AddService";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
-    children: [{ path: "orders", element: <Orders /> }],
+    children: [
+      { path: "orders", element: <Orders /> },
+      { path: "add-service", element: <AddService /> },
+    ],
   },
   {
     path: "*",
