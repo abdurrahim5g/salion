@@ -1,0 +1,15 @@
+.singleService {
+  overflow: hidden;
+}
+
+.serviceText {
+  border-radius: 6px;
+  background: linear-gradient(0deg, #000000d2 30%, transparent 100%);
+  opacity: 0;
+  transition: 0.3s;
+  bottom: -100px;
+}
+.singleService:hover .serviceText {
+  opacity: 1;
+  bottom: 0;
+}

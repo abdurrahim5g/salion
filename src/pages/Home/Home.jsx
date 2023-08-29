@@ -1,3 +1,4 @@
+import Services from "../../components/Shared/Services/Services";
 import About from "./About/About";
 import Hero from "./Hero/Hero";
 import Partners from "./Partners/Partners";
@@ -8,6 +9,7 @@ const Home = () => {
   return (
     <>
       <Hero />
+      <Services />
       <About />
       <Promotion />
       <Team />
