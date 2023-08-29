@@ -8,6 +8,7 @@ import Dashboard from "../layouts/Dashboard/Dashboard";
 import Orders from "../dashboard/admin/Orders/Orders";
 import AddService from "../dashboard/admin/AddService/AddService";
 import MakeAdmin from "../dashboard/admin/MakeAdmin/MakeAdmin";
+import ManageServices from "../dashboard/admin/ManageServices/ManageServices";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       { path: "orders", element: <Orders /> },
       { path: "add-service", element: <AddService /> },
       { path: "make-admin", element: <MakeAdmin /> },
+      { path: "manage-services", element: <ManageServices /> },
     ],
   },
   {
