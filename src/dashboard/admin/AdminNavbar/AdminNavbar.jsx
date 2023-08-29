@@ -9,6 +9,8 @@ const AdminNavbar = () => {
       <AdminLink to="add-service" icon="FaPlus" text="Add Service" />
       <AdminLink to="make-admin" icon="FaUserPlus" text="Make Admin" />
       <AdminLink to="manage-services" icon="FaBuffer" text="Manage Services" />
+      {/* customer view */}
+      <AdminLink to="booking-list" icon="FaListUl" text="Booking List" />
     </div>
   );
 };
