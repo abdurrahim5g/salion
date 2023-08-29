@@ -7,6 +7,7 @@ const AdminNavbar = () => {
       <AdminLink to="/dashboard/" icon="" className="hi" text="Dashboard" />
       <AdminLink to="orders" icon="FaThList" text="Order List" />
       <AdminLink to="add-service" icon="FaPlus" text="Add Service" />
+      <AdminLink to="make-admin" icon="FaUserPlus" text="Make Admin" />
     </div>
   );
 };
