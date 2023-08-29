@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import style from "./AddService.module.css";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const AddService = () => {
   const {
@@ -12,7 +14,41 @@ const AddService = () => {
    * Handle Add service
    */
   const handleAddService = (data) => {
-    console.log(data);
+    const { title, price, description, image } = data;
+
+    let imageData = image[0];
+    const formData = new FormData();
+    formData.append("image", imageData);
+
+    axios
+      .post(
+        `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_Imagebb_API
+        }`,
+        formData
+      )
+      .then((res) => {
+        const data = res.data;
+        if (data.success) {
+          const imageURL = data.data.url;
+          const serviceData = { title, price, description, imageURL };
+          // post request for service
+          axios
+            .post("http://localhost:5000/services", serviceData)
+            .then((res) => {
+              const data = res.data;
+              if (data.acknowledged && data.insertedId) {
+                toast.success("Service added successfuly!");
+              } else {
+                toast.warning("Something is wrong please try again");
+              }
+            });
+        } else {
+          toast.error("Please change the image and then try again");
+        }
+      });
+
+    console.log(imageData);
   };
 
   return (
@@ -68,7 +104,8 @@ const AddService = () => {
               {...register("image", { required: "image is require" })}
               type="file"
               id="image"
-              className="file-input file-input-bordered file-input-md w-full "
+              accept="image/x-png,image/jpeg"
+              className="file-input file-input-bordered file-input-md w-full"
             />
             <p className="text-red-500 text-sm">{errors?.image?.message}</p>
           </div>
