@@ -7,6 +7,7 @@ const AddService = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -39,6 +40,7 @@ const AddService = () => {
               const data = res.data;
               if (data.acknowledged && data.insertedId) {
                 toast.success("Service added successfuly!");
+                reset();
               } else {
                 toast.warning("Something is wrong please try again");
               }
@@ -47,8 +49,6 @@ const AddService = () => {
           toast.error("Please change the image and then try again");
         }
       });
-
-    console.log(imageData);
   };
 
   return (
