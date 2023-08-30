@@ -11,6 +11,7 @@ import MakeAdmin from "../dashboard/admin/MakeAdmin/MakeAdmin";
 import ManageServices from "../dashboard/admin/ManageServices/ManageServices";
 import BookingList from "../dashboard/customer/BookingList/BookingList";
 import Reviews from "../dashboard/customer/Reviews/Reviews";
+import DashboardRoute from "./DashboardRoute";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <DashboardRoute>
+        <Dashboard />
+      </DashboardRoute>
+    ),
     children: [
       { path: "orders", element: <Orders /> },
       { path: "add-service", element: <AddService /> },

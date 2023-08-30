@@ -14,6 +14,7 @@ export const AuthContex = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const auth = getAuth(app);
 
@@ -23,6 +24,7 @@ const AuthProvider = ({ children }) => {
       if (user) {
         setUser(user);
       }
+      setLoading(false);
     });
     return unsubscribe;
   }, [auth]);
@@ -51,6 +53,7 @@ const AuthProvider = ({ children }) => {
   // authInfo is the contex value
   const authInfo = {
     user,
+    loading,
     signUp,
     signIn,
     updateDisplayName,
