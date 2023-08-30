@@ -12,6 +12,7 @@ import ManageServices from "../dashboard/admin/ManageServices/ManageServices";
 import BookingList from "../dashboard/customer/BookingList/BookingList";
 import Reviews from "../dashboard/customer/Reviews/Reviews";
 import DashboardRoute from "./DashboardRoute";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -45,10 +46,38 @@ const router = createBrowserRouter([
       </DashboardRoute>
     ),
     children: [
-      { path: "orders", element: <Orders /> },
-      { path: "add-service", element: <AddService /> },
-      { path: "make-admin", element: <MakeAdmin /> },
-      { path: "manage-services", element: <ManageServices /> },
+      {
+        path: "orders",
+        element: (
+          <AdminRoute>
+            <Orders />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "add-service",
+        element: (
+          <AdminRoute>
+            <AddService />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "make-admin",
+        element: (
+          <AdminRoute>
+            <MakeAdmin />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manage-services",
+        element: (
+          <AdminRoute>
+            <ManageServices />
+          </AdminRoute>
+        ),
+      },
       { path: "booking-list", element: <BookingList /> },
       { path: "reviews", element: <Reviews /> },
     ],
