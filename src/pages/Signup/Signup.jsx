@@ -6,12 +6,13 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import useAuthContex from "../../hooks/useAuthContex";
 import { toast } from "react-toastify";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Signup = () => {
   // states
   const [passError, setPassError] = useState(null);
 
-  const { signUp, updateDisplayName } = useAuthContex();
+  const { signUp, updateDisplayName, providerSignIn } = useAuthContex();
   // const location = useLocation()
 
   // features get from third party packages
@@ -45,6 +46,26 @@ const Signup = () => {
     } else {
       setPassError("Password dosen't match");
     }
+  };
+
+  /**
+   *
+   *
+   * Handle providerSignIn
+   */
+  const googleProvider = new GoogleAuthProvider();
+  const handleProviderSignIn = (provider) => {
+    providerSignIn(provider)
+      .then((res) => {
+        const user = res.user;
+        if (user?.uid) {
+          toast.success("Sign in successfuly. 🚀");
+          navigate("/dashboard");
+        }
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
   };
 
   return (
@@ -158,7 +179,10 @@ const Signup = () => {
               <div className="divider my-8">OR</div>
 
               <div className="google-login">
-                <button className="flex w-full items-center border rounded-full p-2">
+                <button
+                  className="flex w-full items-center border rounded-full p-2"
+                  onClick={() => handleProviderSignIn(googleProvider)}
+                >
                   <img src={googleIcon} alt="Google Icon" />
                   <span className="flex-grow  text-center">
                     Continue with Google
