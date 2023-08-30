@@ -6,6 +6,7 @@ import useAuthContex from "../../hooks/useAuthContex";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
+import { insertUserOnDB } from "../../utils/utils";
 
 const Login = () => {
   /**
@@ -58,8 +59,12 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         if (user.uid) {
-          toast.success("Login successfuly");
-          navigate(from);
+          insertUserOnDB(user.displayName, user.email).then((res) => {
+            if (res.data.acknowledged) {
+              toast.success("Sign in successfuly. 🚀");
+              navigate("/dashboard");
+            }
+          });
         }
       })
       .catch((err) => {

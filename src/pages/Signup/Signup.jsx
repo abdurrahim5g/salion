@@ -34,8 +34,12 @@ const Signup = () => {
           if (user.uid) {
             updateDisplayName(name)
               .then(() => {
-                toast.success("Your account created successfuly!");
-                navigate("/dashboard");
+                insertUserOnDB(name, email).then((res) => {
+                  if (res.data.acknowledged) {
+                    toast.success("Your account created successfuly!");
+                    navigate("/dashboard");
+                  }
+                });
               })
               .catch((err) => toast.error(err.code));
           }
