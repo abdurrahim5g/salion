@@ -12,6 +12,7 @@ const Signup = () => {
   const [passError, setPassError] = useState(null);
 
   const { signUp, updateDisplayName } = useAuthContex();
+  // const location = useLocation()
 
   // features get from third party packages
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Signup = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const handleSignUp = (data) => {
@@ -31,12 +33,15 @@ const Signup = () => {
             updateDisplayName(name)
               .then(() => {
                 toast.success("Your account created successfuly!");
-                navigate("/");
+                navigate("/dashboard");
               })
-              .catch((err) => console.log(err));
+              .catch((err) => toast.error(err.code));
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          toast.error(err.code);
+          reset();
+        });
     } else {
       setPassError("Password dosen't match");
     }
