@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import style from "./Orders.module.css";
+import useDashboardContex from "../../../hooks/useDashboardContex";
 
 const Orders = () => {
   const [orders, setOrders] = useState();
+
+  const { setDashboardTitle } = useDashboardContex();
+  setDashboardTitle("Orders");
 
   const demoOrders = [
     {

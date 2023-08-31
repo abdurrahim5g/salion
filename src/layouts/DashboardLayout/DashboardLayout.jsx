@@ -20,7 +20,7 @@ const DashboardLayout = () => {
           Open
         </label>
 
-        <div className="page-header flex items-center justify-between p-5 font-semibold text-2xl w-full self-auto shadow-md bg-white">
+        <div className="page-header flex items-center justify-between p-5 font-semibold text-xl w-full self-auto shadow-md bg-white">
           <div className="page-name">{dashboardTitle}</div>
           <div className="user-name">{user?.displayName || "UserName"}</div>
         </div>

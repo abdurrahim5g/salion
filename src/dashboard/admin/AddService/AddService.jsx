@@ -2,8 +2,12 @@ import { useForm } from "react-hook-form";
 import style from "./AddService.module.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import useDashboardContex from "../../../hooks/useDashboardContex";
 
 const AddService = () => {
+  const { setDashboardTitle } = useDashboardContex();
+  setDashboardTitle("Add Service");
+
   const {
     register,
     handleSubmit,

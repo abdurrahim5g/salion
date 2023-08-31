@@ -1,6 +1,10 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
+import useDashboardContex from "../../../hooks/useDashboardContex";
 
 const ManageServices = () => {
+  const { setDashboardTitle } = useDashboardContex();
+  setDashboardTitle("Manage Service");
+
   return (
     <section className="manage-services-page">
       <div className="manage-services-container">

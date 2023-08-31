@@ -1,6 +1,10 @@
 import { FaStar } from "react-icons/fa";
+import useDashboardContex from "../../../hooks/useDashboardContex";
 
 const Reviews = () => {
+  const { setDashboardTitle } = useDashboardContex();
+  setDashboardTitle("Reviews");
+
   return (
     <section className="reviews-page">
       <div className="reviews-container">

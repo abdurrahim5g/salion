@@ -1,8 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import { useForm } from "react-hook-form";
+import useDashboardContex from "../../../hooks/useDashboardContex";
 // import style from "./MakeAdmin.module.css";
 
 const MakeAdmin = () => {
+  const { setDashboardTitle } = useDashboardContex();
+  setDashboardTitle("Make Admin");
+
   const {
     register,
     handleSubmit,

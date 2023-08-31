@@ -1,4 +1,9 @@
+import useDashboardContex from "../../../hooks/useDashboardContex";
+
 const BookingList = () => {
+  const { setDashboardTitle } = useDashboardContex();
+  setDashboardTitle("Booking List");
+
   return (
     <section className="booking-list-page">
       <div className="booking-list-container">
