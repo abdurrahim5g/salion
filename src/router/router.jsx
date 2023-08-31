@@ -13,6 +13,7 @@ import Reviews from "../dashboard/customer/Reviews/Reviews";
 import DashboardRoute from "./DashboardRoute";
 import AdminRoute from "./AdminRoute";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
+import Dashboard from "../dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
       </DashboardRoute>
     ),
     children: [
+      {
+        path: "/dashboard",
+        element: (
+          <AdminRoute>
+            <Dashboard />
+          </AdminRoute>
+        ),
+      },
       {
         path: "orders",
         element: (
