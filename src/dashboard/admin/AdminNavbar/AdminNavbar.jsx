@@ -10,6 +10,7 @@ const AdminNavbar = () => {
       <AdminLink to="make-admin" icon="FaUserPlus" text="Make Admin" />
       <AdminLink to="manage-services" icon="FaBuffer" text="Manage Services" />
       {/* customer view */}
+      <AdminLink to="book" icon="FaCartPlus" text="Book" />
       <AdminLink to="booking-list" icon="FaListUl" text="Booking List" />
       <AdminLink to="reviews" icon="FaComment" text="Reviews" />
     </div>

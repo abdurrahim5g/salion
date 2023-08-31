@@ -15,6 +15,7 @@ import AdminRoute from "./AdminRoute";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../dashboard/Dashboard";
 import DashboardContexProvider from "../context/DashboardContexProvider";
+import Book from "../dashboard/customer/Book/Book";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,7 @@ const router = createBrowserRouter([
       },
       { path: "booking-list", element: <BookingList /> },
       { path: "reviews", element: <Reviews /> },
+      { path: "book", element: <Book /> },
     ],
   },
   {
