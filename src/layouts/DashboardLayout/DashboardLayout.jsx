@@ -1,10 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
-import "./Dashboard.css";
+import "./DashboardLayout.css";
 import logo from "./logo.png";
 import AdminNavbar from "../../dashboard/admin/AdminNavbar/AdminNavbar";
 import useAuthContex from "../../hooks/useAuthContex";
 
-const Dashboard = () => {
+const DashboardLayout = () => {
   const { user } = useAuthContex();
 
   return (
@@ -47,4 +47,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardLayout;
