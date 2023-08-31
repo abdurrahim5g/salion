@@ -3,9 +3,11 @@ import "./DashboardLayout.css";
 import logo from "./logo.png";
 import AdminNavbar from "../../dashboard/admin/AdminNavbar/AdminNavbar";
 import useAuthContex from "../../hooks/useAuthContex";
+import useDashboardContex from "../../hooks/useDashboardContex";
 
 const DashboardLayout = () => {
   const { user } = useAuthContex();
+  const { dashboardTitle } = useDashboardContex();
 
   return (
     <div className="drawer lg:drawer-open">
@@ -19,7 +21,7 @@ const DashboardLayout = () => {
         </label>
 
         <div className="page-header flex items-center justify-between p-5 font-semibold text-2xl w-full self-auto shadow-md bg-white">
-          <div className="page-name">Oreder List</div>
+          <div className="page-name">{dashboardTitle}</div>
           <div className="user-name">{user?.displayName || "UserName"}</div>
         </div>
 

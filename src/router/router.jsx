@@ -14,6 +14,7 @@ import DashboardRoute from "./DashboardRoute";
 import AdminRoute from "./AdminRoute";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../dashboard/Dashboard";
+import DashboardContexProvider from "../context/DashboardContexProvider";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,9 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <DashboardRoute>
-        <DashboardLayout />
+        <DashboardContexProvider>
+          <DashboardLayout />
+        </DashboardContexProvider>
       </DashboardRoute>
     ),
     children: [
