@@ -1,11 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useForm } from "react-hook-form";
 import useAuthContex from "../../../hooks/useAuthContex";
 import { useQuery } from "react-query";
 import axios from "axios";
 import Loading from "../../../components/Loading/Loading";
+import { useEffect } from "react";
+import useDashboardContex from "../../../hooks/useDashboardContex";
 
 const Book = () => {
   const { user } = useAuthContex();
+
+  const { setDashboardTitle } = useDashboardContex();
+
+  useEffect(() => {
+    setDashboardTitle("Book");
+  }, []);
 
   /**
    *

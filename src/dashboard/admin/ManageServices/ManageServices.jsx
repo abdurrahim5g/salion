@@ -1,9 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FaEdit, FaTrash } from "react-icons/fa";
 import useDashboardContex from "../../../hooks/useDashboardContex";
+import { useEffect } from "react";
 
 const ManageServices = () => {
   const { setDashboardTitle } = useDashboardContex();
-  setDashboardTitle("Manage Service");
+
+  useEffect(() => {
+    setDashboardTitle("Manage Service");
+  }, []);
 
   return (
     <section className="manage-services-page">

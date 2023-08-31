@@ -1,11 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // eslint-disable-next-line no-unused-vars
 import { useForm } from "react-hook-form";
 import useDashboardContex from "../../../hooks/useDashboardContex";
+import { useEffect } from "react";
 // import style from "./MakeAdmin.module.css";
 
 const MakeAdmin = () => {
   const { setDashboardTitle } = useDashboardContex();
-  setDashboardTitle("Make Admin");
+
+  useEffect(() => {
+    setDashboardTitle("Make admin");
+  }, []);
 
   const {
     register,

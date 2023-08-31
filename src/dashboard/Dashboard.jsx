@@ -1,9 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import useDashboardContex from "../hooks/useDashboardContex";
 import MyAccount from "./customer/MyAccount/MyAccount";
 
 const Dashboard = () => {
   const { setDashboardTitle } = useDashboardContex();
-  setDashboardTitle("Dashboard");
+
+  useEffect(() => {
+    setDashboardTitle("Dashboard");
+  }, []);
 
   return (
     <>

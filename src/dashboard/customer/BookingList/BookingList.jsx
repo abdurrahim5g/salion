@@ -1,8 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import useDashboardContex from "../../../hooks/useDashboardContex";
 
 const BookingList = () => {
   const { setDashboardTitle } = useDashboardContex();
-  setDashboardTitle("Booking List");
+
+  useEffect(() => {
+    setDashboardTitle("Booking List");
+  }, []);
 
   return (
     <section className="booking-list-page">

@@ -1,9 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FaStar } from "react-icons/fa";
 import useDashboardContex from "../../../hooks/useDashboardContex";
+import { useEffect } from "react";
 
 const Reviews = () => {
   const { setDashboardTitle } = useDashboardContex();
-  setDashboardTitle("Reviews");
+
+  useEffect(() => {
+    setDashboardTitle("Review");
+  }, []);
 
   return (
     <section className="reviews-page">

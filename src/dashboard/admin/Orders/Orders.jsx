@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import style from "./Orders.module.css";
 import useDashboardContex from "../../../hooks/useDashboardContex";
@@ -6,7 +7,6 @@ const Orders = () => {
   const [orders, setOrders] = useState();
 
   const { setDashboardTitle } = useDashboardContex();
-  setDashboardTitle("Orders");
 
   const demoOrders = [
     {
@@ -52,7 +52,10 @@ const Orders = () => {
   ];
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => setOrders(demoOrders), []);
+  useEffect(() => {
+    setOrders(demoOrders);
+    setDashboardTitle("Orders");
+  }, []);
 
   const statusColor = (status) => {
     let currentStatus;
